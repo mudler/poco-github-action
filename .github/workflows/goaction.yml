@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+jobs:
+  goaction:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Update action files
+      uses: posener/goaction@v1
+      with:
+        name: poco-github-action
+        github-token: '${{ secrets.GITHUB_TOKEN }}'
+        email: mudler@mocaccino.org
+        desc: "Github Action for creating portable application bundles"
+        install: "docker,wget,curl,jq"
+        icon: "box"
+        color: purple
