@@ -3,7 +3,7 @@
 name: poco-github-action
 description: Github Action for creating portable application bundles
 inputs:
-  entrypoint:
+  appEntrypoint:
     default: /bin/sh
     description: "Application container entrypoint"
     required: false
@@ -39,7 +39,7 @@ inputs:
     description: "Application attrs"
     required: false
   appStore:
-    default: $HOME/.store
+    default: .store
     description: "Application store"
     required: false
   image:
@@ -56,7 +56,7 @@ runs:
   using: docker
   image: Dockerfile
   args:
-  - "-entrypoint=${{ inputs.entrypoint }}"
+  - "-appEntrypoint=${{ inputs.appEntrypoint }}"
   - "-output=${{ inputs.output }}"
   - "-appDescription=${{ inputs.appDescription }}"
   - "-local=${{ inputs.local }}"
