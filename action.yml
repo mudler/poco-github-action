@@ -46,6 +46,7 @@ inputs:
     description: "Application image"
     required: false
   compression:
+    default: xz
     description: "Application compression"
     required: false
   version:

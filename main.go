@@ -21,7 +21,7 @@ var appMounts = flag.String("appMounts", "", "Application mounts")
 var appAttrs = flag.String("appAttrs", "", "Application attrs")
 var appStore = flag.String("appStore", ".store", "Application store")
 var image = flag.String("image", "", "Application image")
-var compression = flag.String("compression", "", "Application compression")
+var compression = flag.String("compression", "xz", "Application compression")
 
 var version = flag.String("version", "v0.2.1", "poco version")
 
@@ -49,7 +49,9 @@ func main() {
 
 	RunSH("dependencies", fmt.Sprintf("curl -L https://github.com/mudler/poco/releases/download/%s/poco-%s-Linux-x86_64.tar.gz --output poco.tar.gz", *version, *version))
 	RunSH("dependencies", "tar xvf poco.tar.gz")
-	RunSH("dependencies", "sudo mv poco /usr/bin/poco")
+	RunSH("dependencies", "mv poco /usr/bin/poco")
+	RunSH("dependencies", "poco --version")
+
 	l := "--local"
 	if !*localDaemon {
 		l = ""

@@ -17,8 +17,9 @@ jobs:
         image: "example"
         appEntrypoint: "/usr/bin/wget"
         output: "./wget"
+        appStore: "$HOME/.store"
         
     - name: "Check files were built"
       run: |
             ls -liah
-            ./wget --help
+            ./wget www.google.com
