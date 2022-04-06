@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-var entrypoint = flag.String("entrypoint", "/bin/sh", "Application container entrypoint")
+var entrypoint = flag.String("appEntrypoint", "/bin/sh", "Application container entrypoint")
 var output = flag.String("output", "output", "Output file path")
 var appDescription = flag.String("appDescription", "poco Description", "Application description")
 var localDaemon = flag.Bool("local", true, "Use local daemon to find image")
@@ -19,7 +19,7 @@ var appAuthor = flag.String("appAuthor", "", "Application author")
 var appVersion = flag.String("appVersion", "", "Application version")
 var appMounts = flag.String("appMounts", "", "Application mounts")
 var appAttrs = flag.String("appAttrs", "", "Application attrs")
-var appStore = flag.String("appStore", "$HOME/.store", "Application store")
+var appStore = flag.String("appStore", ".store", "Application store")
 var image = flag.String("image", "", "Application image")
 var compression = flag.String("compression", "", "Application compression")
 
