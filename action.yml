@@ -19,6 +19,10 @@ inputs:
     default: true
     description: "Use local daemon to find image"
     required: false
+  checksum:
+    default: true
+    description: "Generate sha256 checksum"
+    required: false
   appName:
     default: poco App name
     description: "Application name"
@@ -66,6 +70,7 @@ runs:
   - "-output=${{ inputs.output }}"
   - "-appDescription=${{ inputs.appDescription }}"
   - "-local=${{ inputs.local }}"
+  - "-checksum=${{ inputs.checksum }}"
   - "-appName=${{ inputs.appName }}"
   - "-appCopyright=${{ inputs.appCopyright }}"
   - "-appAuthor=${{ inputs.appAuthor }}"
