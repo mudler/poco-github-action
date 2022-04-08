@@ -16,5 +16,5 @@ jobs:
         desc: "Github Action for creating portable application bundles"
         install: "docker,wget,curl,jq"
         icon: "box"
-        image: "golang:alpine"
+        image: "golang:1.18-alpine"
         color: purple
