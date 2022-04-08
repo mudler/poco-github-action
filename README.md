@@ -20,5 +20,6 @@ It takes the same arguments as of poco, given you have a Dockerfile in the root 
     image: "example"
     appEntrypoint: "/usr/bin/wget"
     output: "./wget"
+    appMounts: "/etc/resolv.conf,/home"
     appStore: "$HOME/.store"
 ```
