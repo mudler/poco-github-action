@@ -14,13 +14,13 @@ jobs:
       uses: ./
       with:
         appDescription: "foo"
-        appName: "wget"
+        appName: "curl"
         image: "example"
-        appEntrypoint: "/usr/bin/wget"
-        output: "./wget"
+        appEntrypoint: "/usr/bin/curl"
+        output: "./curl"
         appStore: "$HOME/.store"
         
     - name: "Check files were built"
       run: |
             ls -liah
-            ./wget www.google.com
+            ./curl www.google.com
