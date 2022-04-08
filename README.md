@@ -1,5 +1,5 @@
 # poco-github-action
-Github action for poco app bundler
+Github action for [poco](https://github.com/mudler/poco)
 
 
 ## Usage
