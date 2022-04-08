@@ -19,8 +19,13 @@ jobs:
         appEntrypoint: "/usr/bin/curl"
         output: "./curl"
         appStore: "$HOME/.store"
-        
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with: 
+          name: assets-for-download
+          path: curl   
     - name: "Check files were built"
       run: |
             ls -liah
             ./curl www.google.com
+    
