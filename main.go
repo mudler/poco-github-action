@@ -13,6 +13,7 @@ var entrypoint = flag.String("appEntrypoint", "/bin/sh", "Application container 
 var output = flag.String("output", "output", "Output file path")
 var appDescription = flag.String("appDescription", "poco Description", "Application description")
 var localDaemon = flag.Bool("local", true, "Use local daemon to find image")
+var checksum = flag.Bool("checksum", true, "Generate sha256 checksum")
 var appName = flag.String("appName", "poco App name", "Application name")
 var appCopyright = flag.String("appCopyright", "noone", "Application copyright")
 var appAuthor = flag.String("appAuthor", "noone", "Application author")
@@ -66,6 +67,10 @@ func main() {
 		toKey("ATTRS", *appAttrs),
 		toKey("STORE", *appStore),
 	))
+	
+	if *checksum {
+		checkErr(RunSH("sha256sum", fmt.Sprintf("sha256sum %s > %s.sha256",*output,*output)))
+	}
 }
 
 func toKey(k, v string) string {
