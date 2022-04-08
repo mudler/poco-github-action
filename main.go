@@ -25,6 +25,7 @@ var image = flag.String("image", "", "Application image")
 var compression = flag.String("compression", "xz", "Application compression")
 
 var version = flag.String("version", "v0.2.1", "poco version")
+var arch = flag.String("arch", "x86_64", "poco architecture")
 
 func RunSH(stepName, bashFragment string, envs ...string) error {
 	cmd := exec.Command("sh", "-s")
@@ -48,7 +49,7 @@ set -o nounset
 func main() {
 	flag.Parse()
 
-	RunSH("dependencies", fmt.Sprintf("curl -L https://github.com/mudler/poco/releases/download/%s/poco-%s-Linux-x86_64.tar.gz --output poco.tar.gz", *version, *version))
+	RunSH("dependencies", fmt.Sprintf("curl -L https://github.com/mudler/poco/releases/download/%s/poco-%s-Linux-%s.tar.gz --output poco.tar.gz", *version, *version, *arch))
 	RunSH("dependencies", "tar xvf poco.tar.gz")
 	RunSH("dependencies", "mv poco /usr/bin/poco")
 	RunSH("dependencies", "poco --version")
