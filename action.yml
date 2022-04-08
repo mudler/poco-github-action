@@ -33,9 +33,11 @@ inputs:
     description: "Application version"
     required: false
   appMounts:
+    default: /home
     description: "Application mounts"
     required: false
   appAttrs:
+    default: ipc uts user ns pid
     description: "Application attrs"
     required: false
   appStore:
