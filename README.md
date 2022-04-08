@@ -23,3 +23,5 @@ It takes the same arguments as of poco, given you have a Dockerfile in the root 
     appMounts: "/etc/resolv.conf,/home"
     appStore: "$HOME/.store"
 ```
+
+For a complete example, check out the [test](https://github.com/mudler/poco-github-action/blob/main/.github/workflows/test.yml) workflow
