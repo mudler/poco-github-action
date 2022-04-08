@@ -24,20 +24,23 @@ inputs:
     description: "Application name"
     required: false
   appCopyright:
+    default: noone
     description: "Application copyright"
     required: false
   appAuthor:
+    default: noone
     description: "Application author"
     required: false
   appVersion:
+    default: "0.1"
     description: "Application version"
     required: false
   appMounts:
-    default: /home
+    default: /etc/resolv.conf
     description: "Application mounts"
     required: false
   appAttrs:
-    default: ipc uts user ns pid
+    default: ipc,uts,user,ns,pid
     description: "Application attrs"
     required: false
   appStore:
