@@ -22,9 +22,10 @@ var appMounts = flag.String("appMounts", "/etc/resolv.conf", "Application mounts
 var appAttrs = flag.String("appAttrs", "ipc,uts,user,ns,pid", "Application attrs")
 var appStore = flag.String("appStore", ".store", "Application store")
 var image = flag.String("image", "", "Application image")
+var directory = flag.String("directory", "", "Application directory")
 var compression = flag.String("compression", "xz", "Application compression")
 
-var version = flag.String("version", "v0.2.1", "poco version")
+var version = flag.String("version", "v0.3.1", "poco version")
 var arch = flag.String("arch", "x86_64", "poco architecture")
 
 func RunSH(stepName, bashFragment string, envs ...string) error {
@@ -58,12 +59,14 @@ func main() {
 	if !*localDaemon {
 		l = ""
 	}
-	checkErr(RunSH("build", fmt.Sprintf("CGO_ENABLED=0 poco bundle --command-prefix '' --entrypoint %s --output %s %s --image %s --compression %s", *entrypoint, *output, l, *image, *compression),
+	checkErr(RunSH("build", fmt.Sprintf("CGO_ENABLED=0 poco bundle --command-prefix '' --entrypoint %s --output %s %s --compression %s", *entrypoint, *output, l, *compression),
 		toKey("DESCRIPTION", *appDescription),
 		toKey("COPYRIGHT", *appCopyright),
 		toKey("AUTHOR", *appAuthor),
+		toKey("IMAGE", *image),
 		toKey("NAME", *appName),
 		toKey("VERSION", *appVersion),
+		toKey("DIRECTORY", *directory),
 		toKey("MOUNTS", *appMounts),
 		toKey("ATTRS", *appAttrs),
 		toKey("STORE", *appStore),
