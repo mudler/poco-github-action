@@ -18,6 +18,7 @@ It takes the same arguments as of poco, given you have a Dockerfile in the root 
     appDescription: "foo"
     appName: "bar"
     image: "example"
+    directory: "./dir" # optional, to bundle from a dir
     appEntrypoint: "/usr/bin/wget"
     output: "./wget"
     appMounts: "/etc/resolv.conf,/home"
