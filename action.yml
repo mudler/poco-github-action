@@ -54,12 +54,15 @@ inputs:
   image:
     description: "Application image"
     required: false
+  directory:
+    description: "Application directory"
+    required: false
   compression:
     default: xz
     description: "Application compression"
     required: false
   version:
-    default: v0.2.1
+    default: v0.3.1
     description: "poco version"
     required: false
   arch:
@@ -83,6 +86,7 @@ runs:
   - "-appAttrs=${{ inputs.appAttrs }}"
   - "-appStore=${{ inputs.appStore }}"
   - "-image=${{ inputs.image }}"
+  - "-directory=${{ inputs.directory }}"
   - "-compression=${{ inputs.compression }}"
   - "-version=${{ inputs.version }}"
   - "-arch=${{ inputs.arch }}"
